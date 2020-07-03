@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
 
+    var skView: SKView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        skView = PathGenerator(frame: view.frame)
+        view.addSubview(skView)
     }
 
 
