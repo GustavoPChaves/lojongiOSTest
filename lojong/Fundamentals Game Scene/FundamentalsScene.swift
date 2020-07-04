@@ -18,8 +18,10 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
     func presentView(completion: (()->())? = nil){
         
         let newViewController = DayMeditationViewController()
-        newViewController.modalPresentationStyle = .automatic
+        newViewController.modalPresentationStyle = .custom
         viewController.present(newViewController, animated: true, completion: completion)
+        //viewController.show(newViewController, sender: true)
+        //completion?()
     }
     
     var viewController: UIViewController!
@@ -44,7 +46,6 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
     override func didMoveToSuperview() {
         setupScene()
         addPanGesture()
-        print(cameraLimiter)
         //let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(tap:)))
         //self.superview?.addGestureRecognizer(tap)
     }

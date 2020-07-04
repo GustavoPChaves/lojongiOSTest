@@ -59,14 +59,13 @@ class CustomButton: SKSpriteNode{
                 self.delegate?.changeTile(row: self.row, column: self.column, sprite: self.repeatTile)
             })
         }
-        if state == "repeat" {
+        else if state == "repeat" {
             delegate?.presentView(completion: nil)
         }
     }
     
     func unlock(){
         state = "play"
-        print("unlock: \(day!)")
         delegate?.changeTile(row: row, column: column, sprite: playTile)
     }
 }
