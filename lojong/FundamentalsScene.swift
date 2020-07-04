@@ -9,12 +9,19 @@
 import Foundation
 import SpriteKit
 
-class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
+class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
+    
+    func changeTile(row: Int, column: Int, sprite: SKTileGroup) {
+        map.setTileGroup(sprite, forColumn: column, row: row)
+    }
+    
     var fundamentalsScene: SKScene!
     var camera: SKCameraNode!
     var aspectRatio: CGFloat!
     var viewHeight: CGFloat!
     var viewWidth: CGFloat!
+    var map: SKTileMapNode!
+    var buttons: [CustomButton] = []
     
     var cameraLimiter = CGPoint(x: 0, y: 0)
     
@@ -38,6 +45,7 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
     
     func setupScene(){
         fundamentalsScene = SKScene(fileNamed: "Fundamentals")
+        map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode
         fundamentalsScene.scaleMode = .aspectFill
         viewHeight = (fundamentalsScene.frame.height)
         viewWidth = (fundamentalsScene.frame.width)
@@ -61,22 +69,30 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
             day.text = "Dia \(index+1)"
             
             let buttonNode =  CustomButton(position: day.position + CGPoint(x: 0, y: 25))
-            
+            buttonNode.delegate = self
+            buttons.append(buttonNode)
             fundamentalsScene.addChild(buttonNode)
             
-            if let map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode {
+            
                 let location = day.position
                 let column = map.tileColumnIndex(fromPosition: location)
                 let row = map.tileRowIndex(fromPosition: location)
                 let tile = map.tileDefinition(atColumn: column, row: row)
                 
-
+                
                let state = tile!.userData?.value(forKey: "state") as! String
                let orientation = tile!.userData?.value(forKey: "orientation") as! String
                let type = tile!.userData?.value(forKey: "type") as! String
                 
-                buttonNode.setup(type: type, state: state, orientation: orientation, day: index + 1)
-            }
+            buttonNode.setup(type: type, state: state, orientation: orientation, day: index + 1, row: row, column: column)
+            
+        }
+    }
+    
+    func unlock(index: Int){
+        if index < buttons.count{
+            
+            buttons[index].unlock()
         }
     }
     
@@ -118,4 +134,8 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
         
     }
     
+}
+protocol UnlockDay{
+    func unlock(index: Int)
+    func changeTile(row: Int, column: Int, sprite: SKTileGroup)
 }
