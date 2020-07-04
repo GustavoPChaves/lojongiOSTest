@@ -17,6 +17,8 @@
 		8C0D479C24AF79EC00A5268D /* FundamentalsTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */; };
 		8C0D479E24AF7B1000A5268D /* Fundamentals.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D479D24AF7B1000A5268D /* Fundamentals.sks */; };
 		8C0D47A024AFA02B00A5268D /* FundamentalsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */; };
+		8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */; };
+		8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A324AFA82000A5268D /* MathUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FundamentalsTileSet.sks; sourceTree = "<group>"; };
 		8C0D479D24AF7B1000A5268D /* Fundamentals.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fundamentals.sks; sourceTree = "<group>"; };
 		8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundamentalsScene.swift; sourceTree = "<group>"; };
+		8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		8C0D47A324AFA82000A5268D /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				8C0D479324AF6F3100A5268D /* Info.plist */,
 				8C0D479924AF72FE00A5268D /* PathGenerator.swift */,
 				8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */,
+				8C0D47A324AFA82000A5268D /* MathUtils.swift */,
+				8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */,
 				8C0D479D24AF7B1000A5268D /* Fundamentals.sks */,
 				8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */,
 			);
@@ -152,10 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */,
 				8C0D478A24AF6F2C00A5268D /* ViewController.swift in Sources */,
 				8C0D47A024AFA02B00A5268D /* FundamentalsScene.swift in Sources */,
 				8C0D478624AF6F2C00A5268D /* AppDelegate.swift in Sources */,
 				8C0D479A24AF72FE00A5268D /* PathGenerator.swift in Sources */,
+				8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */,
 				8C0D478824AF6F2C00A5268D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

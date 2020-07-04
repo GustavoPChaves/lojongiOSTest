@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        skView = PathGenerator(frame: view.frame)
+        skView = FundamentalsScene(frame: view.frame)
         view.addSubview(skView)
     }
 
