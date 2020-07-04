@@ -15,12 +15,11 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         map.setTileGroup(sprite, forColumn: column, row: row)
     }
     
-    func presentView(){
+    func presentView(completion: (()->())? = nil){
         
-//        let newViewController = DayMeditationViewController()
-//        newViewController.modalPresentationStyle = .automatic
-//        //viewController.navigationController?.pushViewController(newViewController, animated: true)
-//        viewController.present(newViewController, animated: true, completion: nil)
+        let newViewController = DayMeditationViewController()
+        newViewController.modalPresentationStyle = .automatic
+        viewController.present(newViewController, animated: true, completion: completion)
     }
     
     var viewController: UIViewController!
@@ -68,9 +67,9 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode
         restPositions = fundamentalsScene.childNode(withName: "restPositions")
         fundamentalsScene.scaleMode = .aspectFill
-        viewHeight = (fundamentalsScene.frame.height)
-        viewWidth = (fundamentalsScene.frame.width)
-        aspectRatio = viewWidth / viewHeight
+        viewHeight = (self.frame.height)
+        viewWidth = (self.frame.width)
+        aspectRatio = 1.3 * viewWidth / viewHeight
         cameraLimiter.x = viewHeight * aspectRatio
         
         cameraLimiter.y = fundamentalsScene.childNode(withName: "End")!.position.y - viewHeight * aspectRatio
@@ -177,5 +176,5 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
 protocol ControlDaysDelegate{
     func unlock(index: Int)
     func changeTile(row: Int, column: Int, sprite: SKTileGroup)
-    func presentView()
+    func presentView(completion: (()->())?)
 }
