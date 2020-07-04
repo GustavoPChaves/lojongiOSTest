@@ -18,12 +18,15 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
     
     var cameraLimiter = CGPoint(x: 0, y: 0)
     
+    let panGesture = UIPanGestureRecognizer()
+    var previousPoint = CGPoint.zero
+    
     override func didMoveToSuperview() {
         setupScene()
         addPanGesture()
         print(cameraLimiter)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(tap:)))
-         self.superview?.addGestureRecognizer(tap)
+        //let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(tap:)))
+        //self.superview?.addGestureRecognizer(tap)
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,11 +59,26 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
         for (index, day) in daysNode!.children.enumerated() {
             let day = day as! SKLabelNode
             day.text = "Dia \(index+1)"
+            
+            let buttonNode =  CustomButton(position: day.position + CGPoint(x: 0, y: 25))
+            
+            fundamentalsScene.addChild(buttonNode)
+            
+            if let map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode {
+                let location = day.position
+                let column = map.tileColumnIndex(fromPosition: location)
+                let row = map.tileRowIndex(fromPosition: location)
+                let tile = map.tileDefinition(atColumn: column, row: row)
+                
+
+               let state = tile!.userData?.value(forKey: "state") as! String
+               let orientation = tile!.userData?.value(forKey: "orientation") as! String
+               let type = tile!.userData?.value(forKey: "type") as! String
+                
+                buttonNode.setup(type: type, state: state, orientation: orientation, day: index + 1)
+            }
         }
     }
-    
-    let panGesture = UIPanGestureRecognizer()
-    var previousPoint = CGPoint.zero
     
     func  addPanGesture()
     {
@@ -77,8 +95,6 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
         return true
     }
     
-    
-    
     @objc func pannedView(_ sender:UIPanGestureRecognizer)
     {
         
@@ -87,25 +103,19 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate{
         let newPosition = previousPoint + CGPoint(x: 0, y: transPoint.y * 1.5)
         
         self.camera.position = newPosition
- 
+        
         if sender.state == .ended {
-            let cameraInercia = SKAction.move(by: CGVector(dx: 0, dy: sender.velocity(in: self.superview).y / 5), duration: 1)
+            let cameraInercia = SKAction.move(by: CGVector(dx: 0, dy: sender.velocity(in: self.superview).y / 2), duration: 1)
             cameraInercia.timingMode = .easeOut
             camera.run(cameraInercia)
         }
     }
-
-        @objc func tapped(tap : UITapGestureRecognizer) {
-            let viewLocation = tap.location(in: tap.view)
-            let location = fundamentalsScene.convertPoint(fromView: viewLocation)
-            let nodes = fundamentalsScene.nodes(at: location)
-            
-            print(nodes)
-
-    //        if node[0].name == "lvlButton" {
-    //            var button = node as! SKButton
-    //            button.touchBegan(location)
-    //        }
-        }
+    
+    @objc func tapped(tap : UITapGestureRecognizer) {
+        let viewLocation = tap.location(in: tap.view)
+        let location = fundamentalsScene.convertPoint(fromView: viewLocation)
+        let nodes = fundamentalsScene.nodes(at: location)
+        
+    }
     
 }
