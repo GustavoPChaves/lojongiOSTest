@@ -19,6 +19,7 @@
 		8C0D47A024AFA02B00A5268D /* FundamentalsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */; };
 		8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */; };
 		8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A324AFA82000A5268D /* MathUtils.swift */; };
+		8C8CB94724B10EC700F09455 /* DayMeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */; };
 		8CB021CA24B0DE1700AC04C3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB021C924B0DE1700AC04C3 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundamentalsScene.swift; sourceTree = "<group>"; };
 		8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		8C0D47A324AFA82000A5268D /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayMeditationViewController.swift; sourceTree = "<group>"; };
 		8CB021C924B0DE1700AC04C3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,22 +72,31 @@
 		8C0D478424AF6F2C00A5268D /* lojong */ = {
 			isa = PBXGroup;
 			children = (
+				8C8CB94524B10DCA00F09455 /* Fundamentals Game Scene */,
 				8C0D478524AF6F2C00A5268D /* AppDelegate.swift */,
 				8C0D478724AF6F2C00A5268D /* SceneDelegate.swift */,
 				8C0D478924AF6F2C00A5268D /* ViewController.swift */,
 				8C0D478B24AF6F2C00A5268D /* Main.storyboard */,
+				8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */,
 				8C0D478E24AF6F3100A5268D /* Assets.xcassets */,
 				8C0D479024AF6F3100A5268D /* LaunchScreen.storyboard */,
 				8C0D479324AF6F3100A5268D /* Info.plist */,
 				8C0D479924AF72FE00A5268D /* PathGenerator.swift */,
-				8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */,
-				8CB021C924B0DE1700AC04C3 /* CustomButton.swift */,
 				8C0D47A324AFA82000A5268D /* MathUtils.swift */,
 				8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */,
 				8C0D479D24AF7B1000A5268D /* Fundamentals.sks */,
 				8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */,
 			);
 			path = lojong;
+			sourceTree = "<group>";
+		};
+		8C8CB94524B10DCA00F09455 /* Fundamentals Game Scene */ = {
+			isa = PBXGroup;
+			children = (
+				8CB021C924B0DE1700AC04C3 /* CustomButton.swift */,
+				8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */,
+			);
+			path = "Fundamentals Game Scene";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				8C0D478624AF6F2C00A5268D /* AppDelegate.swift in Sources */,
 				8CB021CA24B0DE1700AC04C3 /* CustomButton.swift in Sources */,
 				8C0D479A24AF72FE00A5268D /* PathGenerator.swift in Sources */,
+				8C8CB94724B10EC700F09455 /* DayMeditationViewController.swift in Sources */,
 				8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */,
 				8C0D478824AF6F2C00A5268D /* SceneDelegate.swift in Sources */,
 			);

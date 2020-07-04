@@ -9,12 +9,21 @@
 import Foundation
 import SpriteKit
 
-class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
+class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegate{
     
     func changeTile(row: Int, column: Int, sprite: SKTileGroup) {
         map.setTileGroup(sprite, forColumn: column, row: row)
     }
     
+    func presentView(){
+        
+//        let newViewController = DayMeditationViewController()
+//        newViewController.modalPresentationStyle = .automatic
+//        //viewController.navigationController?.pushViewController(newViewController, animated: true)
+//        viewController.present(newViewController, animated: true, completion: nil)
+    }
+    
+    var viewController: UIViewController!
     var fundamentalsScene: SKScene!
     var camera: SKCameraNode!
     var aspectRatio: CGFloat!
@@ -28,6 +37,11 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
     let panGesture = UIPanGestureRecognizer()
     var previousPoint = CGPoint.zero
     
+    var restPositions: SKNode!
+    var currentPosition: Int = 0
+    
+    var elephant: SKSpriteNode!
+    
     override func didMoveToSuperview() {
         setupScene()
         addPanGesture()
@@ -39,13 +53,20 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
         super.init(frame: frame)
     }
     
+    init(viewController: UIViewController) {
+        super.init(frame: viewController.view.frame)
+        self.viewController = viewController
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupScene(){
+
         fundamentalsScene = SKScene(fileNamed: "Fundamentals")
         map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode
+        restPositions = fundamentalsScene.childNode(withName: "restPositions")
         fundamentalsScene.scaleMode = .aspectFill
         viewHeight = (fundamentalsScene.frame.height)
         viewWidth = (fundamentalsScene.frame.width)
@@ -58,6 +79,11 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
         let constraint = SKConstraint.positionY(SKRange(lowerLimit: cameraLimiter.x, upperLimit: cameraLimiter.y))
         camera.constraints = [constraint]
         setupDays()
+        
+        elephant = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "elephant")))
+        fundamentalsScene.addChild(elephant)
+        elephant.position = restPositions.children[currentPosition].position
+        
         self.presentScene(fundamentalsScene)
     }
     
@@ -93,6 +119,19 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
         if index < buttons.count{
             
             buttons[index].unlock()
+            currentPosition = index
+            let node = restPositions.children[currentPosition]
+            elephant.position = node.position
+            
+            if node.userData?.value(forKey: "type") as! String == "floor"{
+                elephant.texture = SKTexture(image: #imageLiteral(resourceName: "elephant"))
+            }
+            else if node.userData?.value(forKey: "type") as! String == "water"{
+                elephant.texture = SKTexture(image: #imageLiteral(resourceName: "elephantBoat"))
+            }
+        }
+        else{
+            elephant.isHidden = true
         }
     }
     
@@ -135,7 +174,8 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, UnlockDay{
     }
     
 }
-protocol UnlockDay{
+protocol ControlDaysDelegate{
     func unlock(index: Int)
     func changeTile(row: Int, column: Int, sprite: SKTileGroup)
+    func presentView()
 }

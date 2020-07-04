@@ -13,7 +13,7 @@ class CustomButton: SKSpriteNode{
     var state: String!
     var orientation: String!
     var day: Int!
-    var delegate: UnlockDay?
+    var delegate: ControlDaysDelegate?
     
     let tileSet = SKTileSet(named: "Forest Tile Set")
     var row: Int!
@@ -38,8 +38,6 @@ class CustomButton: SKSpriteNode{
         self.column = column
         
         setupTiles()
-        
-        
     }
     
     func setupTiles(){
@@ -55,9 +53,13 @@ class CustomButton: SKSpriteNode{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //print("state:\(state), orientation:\(orientation), type:\(type), day:\(day)")
         if state == "play" {
+            delegate?.presentView()
             state = "repeat"
             delegate?.unlock(index: day)
             delegate?.changeTile(row: row, column: column, sprite: repeatTile)
+        }
+        if state == "repeat" {
+            delegate?.presentView()
         }
     }
     

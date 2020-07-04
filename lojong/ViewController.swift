@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     var skView: SKView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        skView = FundamentalsScene(frame: view.frame)
+        skView = FundamentalsScene(viewController: self)
         view.addSubview(skView)
     }
-
+    
+    
 
 }
 
