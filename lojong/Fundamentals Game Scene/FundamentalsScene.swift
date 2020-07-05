@@ -9,45 +9,31 @@
 import Foundation
 import SpriteKit
 
-class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegate{
-    
-    func changeTile(row: Int, column: Int, sprite: SKTileGroup) {
-        map.setTileGroup(sprite, forColumn: column, row: row)
-    }
-    
-    func presentView(completion: (()->())? = nil){
-        
-        let newViewController = DayMeditationViewController()
-        newViewController.modalPresentationStyle = .custom
-        //viewController.present(newViewController, animated: true, completion: completion)
-        viewController.show(newViewController, sender: true)
-        completion?()
-    }
+class FundamentalsScene: SKView{
     
     var viewController: UIViewController!
     var fundamentalsScene: SKScene!
+    var map: SKTileMapNode!
+    var elephant: SKSpriteNode!
     var camera: SKCameraNode!
+    var restPositions: SKNode!
     var aspectRatio: CGFloat!
     var viewHeight: CGFloat!
     var viewWidth: CGFloat!
-    var map: SKTileMapNode!
+    var previousPoint = CGPoint.zero
+    var cameraLimiter = CGPoint(x: 0, y: 0)
+    var currentPosition: Int = 0
     var buttons: [CustomButton] = []
     
-    var cameraLimiter = CGPoint(x: 0, y: 0)
-    
     let panGesture = UIPanGestureRecognizer()
-    var previousPoint = CGPoint.zero
-    
-    var restPositions: SKNode!
-    var currentPosition: Int = 0
-    
-    var elephant: SKSpriteNode!
     
     override func didMoveToSuperview() {
+        viewHeight = self.frame.height
+        viewWidth = self.frame.width
+        aspectRatio = 1.3 * viewWidth / viewHeight
+        
         setupScene()
         addPanGesture()
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(tap:)))
-        //self.superview?.addGestureRecognizer(tap)
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,15 +48,25 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Scene Setup
     func setupScene(){
-
         fundamentalsScene = SKScene(fileNamed: "Fundamentals")
         map = fundamentalsScene.childNode(withName: "Tile Map Node") as? SKTileMapNode
         restPositions = fundamentalsScene.childNode(withName: "restPositions")
+        
+        setupCamera()
+        setupDays()
+        setupPlayer()
+        
         fundamentalsScene.scaleMode = .aspectFill
-        viewHeight = (self.frame.height)
-        viewWidth = (self.frame.width)
-        aspectRatio = 1.3 * viewWidth / viewHeight
+        self.presentScene(fundamentalsScene)
+    }
+    func setupPlayer(){
+        elephant = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "elephant")))
+        fundamentalsScene.addChild(elephant)
+        elephant.position = restPositions.children[currentPosition].position
+    }
+    func setupCamera(){
         cameraLimiter.x = viewHeight * aspectRatio
         
         cameraLimiter.y = fundamentalsScene.childNode(withName: "End")!.position.y - viewHeight * aspectRatio
@@ -78,13 +74,6 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         camera.position = CGPoint(x: 0, y: cameraLimiter.x)
         let constraint = SKConstraint.positionY(SKRange(lowerLimit: cameraLimiter.x, upperLimit: cameraLimiter.y))
         camera.constraints = [constraint]
-        setupDays()
-        
-        elephant = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "elephant")))
-        fundamentalsScene.addChild(elephant)
-        elephant.position = restPositions.children[currentPosition].position
-        
-        self.presentScene(fundamentalsScene)
     }
     
     func setupDays(){
@@ -100,25 +89,48 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
             buttons.append(buttonNode)
             fundamentalsScene.addChild(buttonNode)
             
+            let location = day.position
+            let column = map.tileColumnIndex(fromPosition: location)
+            let row = map.tileRowIndex(fromPosition: location)
+            let tile = map.tileDefinition(atColumn: column, row: row)
             
-                let location = day.position
-                let column = map.tileColumnIndex(fromPosition: location)
-                let row = map.tileRowIndex(fromPosition: location)
-                let tile = map.tileDefinition(atColumn: column, row: row)
-                
-                
-               let state = tile!.userData?.value(forKey: "state") as! String
-               let orientation = tile!.userData?.value(forKey: "orientation") as! String
-               let type = tile!.userData?.value(forKey: "type") as! String
-                
+            let state = tile!.userData?.value(forKey: "state") as! String
+            let orientation = tile!.userData?.value(forKey: "orientation") as! String
+            let type = tile!.userData?.value(forKey: "type") as! String
+            
             buttonNode.setup(type: type, state: state, orientation: orientation, day: index + 1, row: row, column: column)
-            
         }
     }
-    
+    //MARK: PanGesture
+    func  addPanGesture()
+    {
+        self.panGesture.addTarget(self, action: #selector(pannedView(_:) ))
+        self.panGesture.delegate = self as UIGestureRecognizerDelegate
+        self.superview?.addGestureRecognizer(self.panGesture)
+    }
+    @objc func pannedView(_ sender:UIPanGestureRecognizer)
+    {
+        let transPoint = sender.translation(in: self.superview)
+        let newPosition = previousPoint + CGPoint(x: 0, y: transPoint.y * 1.5)
+        self.camera.position = newPosition
+        if sender.state == .ended {
+            let cameraInercia = SKAction.move(by: CGVector(dx: 0, dy: sender.velocity(in: self.superview).y / 2), duration: 1)
+            cameraInercia.timingMode = .easeOut
+            camera.run(cameraInercia)
+        }
+    }
+}
+extension FundamentalsScene: UIGestureRecognizerDelegate{
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
+    {
+        camera.removeAllActions()
+        self.previousPoint = self.camera.position
+        return true
+    }
+}
+extension FundamentalsScene: ControlDaysDelegate{
     func unlock(index: Int){
         if index < buttons.count{
-            
             buttons[index].unlock()
             currentPosition = index
             let node = restPositions.children[currentPosition]
@@ -136,47 +148,16 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         }
     }
     
-    func  addPanGesture()
-    {
-        self.panGesture.addTarget(self, action: #selector(pannedView(_:) ))
-        self.panGesture.delegate = self as UIGestureRecognizerDelegate
-        
-        self.superview?.addGestureRecognizer(self.panGesture)
-    }
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
-    {
-        camera.removeAllActions()
-        self.previousPoint = self.camera.position
-        
-        return true
+    func changeTile(row: Int, column: Int, sprite: SKTileGroup) {
+        map.setTileGroup(sprite, forColumn: column, row: row)
     }
     
-    @objc func pannedView(_ sender:UIPanGestureRecognizer)
-    {
+    func presentView(completion: (()->())? = nil){
         
-        let transPoint = sender.translation(in: self.superview)
-        
-        let newPosition = previousPoint + CGPoint(x: 0, y: transPoint.y * 1.5)
-        
-        self.camera.position = newPosition
-        
-        if sender.state == .ended {
-            let cameraInercia = SKAction.move(by: CGVector(dx: 0, dy: sender.velocity(in: self.superview).y / 2), duration: 1)
-            cameraInercia.timingMode = .easeOut
-            camera.run(cameraInercia)
-        }
+        let newViewController = DayMeditationViewController()
+        newViewController.modalPresentationStyle = .custom
+        //viewController.present(newViewController, animated: true, completion: completion)
+        viewController.show(newViewController, sender: true)
+        completion?()
     }
-    
-    @objc func tapped(tap : UITapGestureRecognizer) {
-        let viewLocation = tap.location(in: tap.view)
-        let location = fundamentalsScene.convertPoint(fromView: viewLocation)
-        let nodes = fundamentalsScene.nodes(at: location)
-        
-    }
-    
-}
-protocol ControlDaysDelegate{
-    func unlock(index: Int)
-    func changeTile(row: Int, column: Int, sprite: SKTileGroup)
-    func presentView(completion: (()->())?)
 }
