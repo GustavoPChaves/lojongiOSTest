@@ -19,6 +19,14 @@
 		8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A324AFA82000A5268D /* MathUtils.swift */; };
 		8C8CB94724B10EC700F09455 /* DayMeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */; };
 		8CA92EBD24B13E83009B268E /* FundamentalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D478924AF6F2C00A5268D /* FundamentalsViewController.swift */; };
+		8CA92EC924B1741C009B268E /* Asap-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC124B1741C009B268E /* Asap-BoldItalic.ttf */; };
+		8CA92ECA24B1741C009B268E /* Asap-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC224B1741C009B268E /* Asap-MediumItalic.ttf */; };
+		8CA92ECB24B1741C009B268E /* Asap-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC324B1741C009B268E /* Asap-Medium.ttf */; };
+		8CA92ECC24B1741C009B268E /* Asap-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC424B1741C009B268E /* Asap-Bold.ttf */; };
+		8CA92ECD24B1741C009B268E /* Asap-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC524B1741C009B268E /* Asap-SemiBoldItalic.ttf */; };
+		8CA92ECE24B1741C009B268E /* Asap-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC624B1741C009B268E /* Asap-Regular.ttf */; };
+		8CA92ECF24B1741C009B268E /* Asap-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC724B1741C009B268E /* Asap-SemiBold.ttf */; };
+		8CA92ED024B1741C009B268E /* Asap-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC824B1741C009B268E /* Asap-Italic.ttf */; };
 		8CB021CA24B0DE1700AC04C3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB021C924B0DE1700AC04C3 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +45,14 @@
 		8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		8C0D47A324AFA82000A5268D /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayMeditationViewController.swift; sourceTree = "<group>"; };
+		8CA92EC124B1741C009B268E /* Asap-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-BoldItalic.ttf"; sourceTree = "<group>"; };
+		8CA92EC224B1741C009B268E /* Asap-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-MediumItalic.ttf"; sourceTree = "<group>"; };
+		8CA92EC324B1741C009B268E /* Asap-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Medium.ttf"; sourceTree = "<group>"; };
+		8CA92EC424B1741C009B268E /* Asap-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Bold.ttf"; sourceTree = "<group>"; };
+		8CA92EC524B1741C009B268E /* Asap-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		8CA92EC624B1741C009B268E /* Asap-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Regular.ttf"; sourceTree = "<group>"; };
+		8CA92EC724B1741C009B268E /* Asap-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-SemiBold.ttf"; sourceTree = "<group>"; };
+		8CA92EC824B1741C009B268E /* Asap-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Italic.ttf"; sourceTree = "<group>"; };
 		8CB021C924B0DE1700AC04C3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +86,7 @@
 		8C0D478424AF6F2C00A5268D /* lojong */ = {
 			isa = PBXGroup;
 			children = (
+				8CA92EC024B1741C009B268E /* Asap Font */,
 				8C8CB94524B10DCA00F09455 /* Fundamentals Game Scene */,
 				8C0D478524AF6F2C00A5268D /* AppDelegate.swift */,
 				8C0D478724AF6F2C00A5268D /* SceneDelegate.swift */,
@@ -94,6 +111,21 @@
 				8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */,
 			);
 			path = "Fundamentals Game Scene";
+			sourceTree = "<group>";
+		};
+		8CA92EC024B1741C009B268E /* Asap Font */ = {
+			isa = PBXGroup;
+			children = (
+				8CA92EC124B1741C009B268E /* Asap-BoldItalic.ttf */,
+				8CA92EC224B1741C009B268E /* Asap-MediumItalic.ttf */,
+				8CA92EC324B1741C009B268E /* Asap-Medium.ttf */,
+				8CA92EC424B1741C009B268E /* Asap-Bold.ttf */,
+				8CA92EC524B1741C009B268E /* Asap-SemiBoldItalic.ttf */,
+				8CA92EC624B1741C009B268E /* Asap-Regular.ttf */,
+				8CA92EC724B1741C009B268E /* Asap-SemiBold.ttf */,
+				8CA92EC824B1741C009B268E /* Asap-Italic.ttf */,
+			);
+			path = "Asap Font";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +186,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA92ECF24B1741C009B268E /* Asap-SemiBold.ttf in Resources */,
+				8CA92ECE24B1741C009B268E /* Asap-Regular.ttf in Resources */,
+				8CA92ECB24B1741C009B268E /* Asap-Medium.ttf in Resources */,
 				8C0D479224AF6F3100A5268D /* LaunchScreen.storyboard in Resources */,
+				8CA92EC924B1741C009B268E /* Asap-BoldItalic.ttf in Resources */,
 				8C0D478F24AF6F3100A5268D /* Assets.xcassets in Resources */,
+				8CA92ECC24B1741C009B268E /* Asap-Bold.ttf in Resources */,
+				8CA92ED024B1741C009B268E /* Asap-Italic.ttf in Resources */,
+				8CA92ECD24B1741C009B268E /* Asap-SemiBoldItalic.ttf in Resources */,
 				8C0D479C24AF79EC00A5268D /* FundamentalsTileSet.sks in Resources */,
+				8CA92ECA24B1741C009B268E /* Asap-MediumItalic.ttf in Resources */,
 				8C0D479E24AF7B1000A5268D /* Fundamentals.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

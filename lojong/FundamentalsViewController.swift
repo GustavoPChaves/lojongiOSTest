@@ -19,8 +19,10 @@ class FundamentalsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         self.title = "FUNDAMENTOS"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Asap-Bold", size: 17)!]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.46, green: 0.79, blue: 0.53, alpha: 1)
+        
         skView = FundamentalsScene(viewController: self)
         view.addSubview(skView)
         setupConstraints()

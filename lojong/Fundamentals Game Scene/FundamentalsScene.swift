@@ -19,9 +19,9 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         
         let newViewController = DayMeditationViewController()
         newViewController.modalPresentationStyle = .custom
-        viewController.present(newViewController, animated: true, completion: completion)
-        //viewController.show(newViewController, sender: true)
-        //completion?()
+        //viewController.present(newViewController, animated: true, completion: completion)
+        viewController.show(newViewController, sender: true)
+        completion?()
     }
     
     var viewController: UIViewController!
@@ -93,6 +93,7 @@ class FundamentalsScene: SKView, UIGestureRecognizerDelegate, ControlDaysDelegat
         for (index, day) in daysNode!.children.enumerated() {
             let day = day as! SKLabelNode
             day.text = "Dia \(index+1)"
+            day.fontName = "Asap-Medium"
             
             let buttonNode =  CustomButton(position: day.position + CGPoint(x: 0, y: 25))
             buttonNode.delegate = self
