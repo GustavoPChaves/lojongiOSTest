@@ -8,6 +8,8 @@
 
 import UIKit
 import SpriteKit
+import AppCenter
+import AppCenterCrashes
 
 class FundamentalsViewController: UIViewController {
 
@@ -23,6 +25,10 @@ class FundamentalsViewController: UIViewController {
         setupNavigationBar()
         
         setupConstraints()
+        
+        MSAppCenter.start("a1212bfd-b3e4-4cfa-8d99-0aa33803cde9", withServices:[
+          MSCrashes.self
+        ])
     }
     
     func setupNavigationBar(){

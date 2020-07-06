@@ -29,9 +29,13 @@
 		8CA92ED224B18B96009B268E /* ControlDaysDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA92ED124B18B96009B268E /* ControlDaysDelegate.swift */; };
 		8CA92ED824B2BF92009B268E /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA92ED724B2BF92009B268E /* UIButton+Extensions.swift */; };
 		8CB021CA24B0DE1700AC04C3 /* ButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB021C924B0DE1700AC04C3 /* ButtonSpriteNode.swift */; };
+		FE94FA57DBF3663AE44E1D0F /* Pods_lojong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F955BAE5F119D29A8876E0 /* Pods_lojong.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09ADEF017A8BAB67E253E5E8 /* Pods-lojong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lojong.debug.xcconfig"; path = "Target Support Files/Pods-lojong/Pods-lojong.debug.xcconfig"; sourceTree = "<group>"; };
+		28F955BAE5F119D29A8876E0 /* Pods_lojong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lojong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADA3EF9ABBB43133817B5C1 /* Pods-lojong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lojong.release.xcconfig"; path = "Target Support Files/Pods-lojong/Pods-lojong.release.xcconfig"; sourceTree = "<group>"; };
 		8C0D478224AF6F2C00A5268D /* lojong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lojong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C0D478524AF6F2C00A5268D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C0D478724AF6F2C00A5268D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE94FA57DBF3663AE44E1D0F /* Pods_lojong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,8 @@
 			children = (
 				8C0D478424AF6F2C00A5268D /* lojong */,
 				8C0D478324AF6F2C00A5268D /* Products */,
+				FAF97FA17C5B448369444725 /* Pods */,
+				EE71D1FAF50AADF4B4B88172 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +178,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		EE71D1FAF50AADF4B4B88172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28F955BAE5F119D29A8876E0 /* Pods_lojong.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAF97FA17C5B448369444725 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09ADEF017A8BAB67E253E5E8 /* Pods-lojong.debug.xcconfig */,
+				5ADA3EF9ABBB43133817B5C1 /* Pods-lojong.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,6 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C0D479624AF6F3100A5268D /* Build configuration list for PBXNativeTarget "lojong" */;
 			buildPhases = (
+				A723F3A9213F5FCC88B6101F /* [CP] Check Pods Manifest.lock */,
 				8C0D477E24AF6F2C00A5268D /* Sources */,
 				8C0D477F24AF6F2C00A5268D /* Frameworks */,
 				8C0D478024AF6F2C00A5268D /* Resources */,
@@ -245,6 +271,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A723F3A9213F5FCC88B6101F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lojong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8C0D477E24AF6F2C00A5268D /* Sources */ = {
@@ -394,6 +445,7 @@
 		};
 		8C0D479724AF6F3100A5268D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09ADEF017A8BAB67E253E5E8 /* Pods-lojong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -412,6 +464,7 @@
 		};
 		8C0D479824AF6F3100A5268D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ADA3EF9ABBB43133817B5C1 /* Pods-lojong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
