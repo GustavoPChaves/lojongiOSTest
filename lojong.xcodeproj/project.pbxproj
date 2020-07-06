@@ -88,14 +88,13 @@
 		8C0D478424AF6F2C00A5268D /* lojong */ = {
 			isa = PBXGroup;
 			children = (
+				8CA92ED924B2CACF009B268E /* Controllers */,
 				8CA92ED624B19007009B268E /* Application */,
 				8CA92ED524B18FA8009B268E /* Protocols */,
 				8CA92ED424B18E69009B268E /* SpriteKit Files */,
 				8CA92ED324B18E50009B268E /* Extensions */,
 				8CA92EC024B1741C009B268E /* Asap Font */,
 				8C8CB94524B10DCA00F09455 /* Fundamentals Game Scene */,
-				8C0D478924AF6F2C00A5268D /* FundamentalsViewController.swift */,
-				8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */,
 				8C0D478E24AF6F3100A5268D /* Assets.xcassets */,
 				8C0D479024AF6F3100A5268D /* LaunchScreen.storyboard */,
 				8C0D479324AF6F3100A5268D /* Info.plist */,
@@ -161,6 +160,15 @@
 				8C0D478724AF6F2C00A5268D /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		8CA92ED924B2CACF009B268E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C0D478924AF6F2C00A5268D /* FundamentalsViewController.swift */,
+				8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

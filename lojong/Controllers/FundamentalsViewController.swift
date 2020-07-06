@@ -24,6 +24,7 @@ class FundamentalsViewController: UIViewController {
         
         setupConstraints()
     }
+    
     func setupNavigationBar(){
         self.title = "FUNDAMENTOS"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Asap-Bold", size: 17)!]
