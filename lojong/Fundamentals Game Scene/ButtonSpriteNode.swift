@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class CustomButton: SKSpriteNode{
+class ButtonSpriteNode: SKSpriteNode{
     var type: String!
     var state: String!
     var orientation: String!

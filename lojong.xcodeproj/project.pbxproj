@@ -13,7 +13,7 @@
 		8C0D479224AF6F3100A5268D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D479024AF6F3100A5268D /* LaunchScreen.storyboard */; };
 		8C0D479C24AF79EC00A5268D /* FundamentalsTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */; };
 		8C0D479E24AF7B1000A5268D /* Fundamentals.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C0D479D24AF7B1000A5268D /* Fundamentals.sks */; };
-		8C0D47A024AFA02B00A5268D /* FundamentalsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */; };
+		8C0D47A024AFA02B00A5268D /* FundamentalsGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D479F24AFA02B00A5268D /* FundamentalsGameController.swift */; };
 		8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */; };
 		8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D47A324AFA82000A5268D /* MathUtils.swift */; };
 		8C8CB94724B10EC700F09455 /* DayMeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */; };
@@ -27,7 +27,8 @@
 		8CA92ECF24B1741C009B268E /* Asap-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC724B1741C009B268E /* Asap-SemiBold.ttf */; };
 		8CA92ED024B1741C009B268E /* Asap-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CA92EC824B1741C009B268E /* Asap-Italic.ttf */; };
 		8CA92ED224B18B96009B268E /* ControlDaysDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA92ED124B18B96009B268E /* ControlDaysDelegate.swift */; };
-		8CB021CA24B0DE1700AC04C3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB021C924B0DE1700AC04C3 /* CustomButton.swift */; };
+		8CA92ED824B2BF92009B268E /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA92ED724B2BF92009B268E /* UIButton+Extensions.swift */; };
+		8CB021CA24B0DE1700AC04C3 /* ButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB021C924B0DE1700AC04C3 /* ButtonSpriteNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,7 @@
 		8C0D479324AF6F3100A5268D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C0D479B24AF79EC00A5268D /* FundamentalsTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FundamentalsTileSet.sks; sourceTree = "<group>"; };
 		8C0D479D24AF7B1000A5268D /* Fundamentals.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fundamentals.sks; sourceTree = "<group>"; };
-		8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundamentalsScene.swift; sourceTree = "<group>"; };
+		8C0D479F24AFA02B00A5268D /* FundamentalsGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundamentalsGameController.swift; sourceTree = "<group>"; };
 		8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		8C0D47A324AFA82000A5268D /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		8C8CB94624B10EC700F09455 /* DayMeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayMeditationViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +54,8 @@
 		8CA92EC724B1741C009B268E /* Asap-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-SemiBold.ttf"; sourceTree = "<group>"; };
 		8CA92EC824B1741C009B268E /* Asap-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asap-Italic.ttf"; sourceTree = "<group>"; };
 		8CA92ED124B18B96009B268E /* ControlDaysDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlDaysDelegate.swift; sourceTree = "<group>"; };
-		8CB021C924B0DE1700AC04C3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8CA92ED724B2BF92009B268E /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		8CB021C924B0DE1700AC04C3 /* ButtonSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSpriteNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +106,8 @@
 		8C8CB94524B10DCA00F09455 /* Fundamentals Game Scene */ = {
 			isa = PBXGroup;
 			children = (
-				8CB021C924B0DE1700AC04C3 /* CustomButton.swift */,
-				8C0D479F24AFA02B00A5268D /* FundamentalsScene.swift */,
+				8CB021C924B0DE1700AC04C3 /* ButtonSpriteNode.swift */,
+				8C0D479F24AFA02B00A5268D /* FundamentalsGameController.swift */,
 			);
 			path = "Fundamentals Game Scene";
 			sourceTree = "<group>";
@@ -128,6 +130,7 @@
 		8CA92ED324B18E50009B268E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8CA92ED724B2BF92009B268E /* UIButton+Extensions.swift */,
 				8C0D47A324AFA82000A5268D /* MathUtils.swift */,
 				8C0D47A124AFA6C100A5268D /* CGPoint+Extensions.swift */,
 			);
@@ -243,9 +246,10 @@
 				8CA92EBD24B13E83009B268E /* FundamentalsViewController.swift in Sources */,
 				8CA92ED224B18B96009B268E /* ControlDaysDelegate.swift in Sources */,
 				8C0D47A424AFA82000A5268D /* MathUtils.swift in Sources */,
-				8C0D47A024AFA02B00A5268D /* FundamentalsScene.swift in Sources */,
+				8CA92ED824B2BF92009B268E /* UIButton+Extensions.swift in Sources */,
+				8C0D47A024AFA02B00A5268D /* FundamentalsGameController.swift in Sources */,
 				8C0D478624AF6F2C00A5268D /* AppDelegate.swift in Sources */,
-				8CB021CA24B0DE1700AC04C3 /* CustomButton.swift in Sources */,
+				8CB021CA24B0DE1700AC04C3 /* ButtonSpriteNode.swift in Sources */,
 				8C8CB94724B10EC700F09455 /* DayMeditationViewController.swift in Sources */,
 				8C0D47A224AFA6C100A5268D /* CGPoint+Extensions.swift in Sources */,
 				8C0D478824AF6F2C00A5268D /* SceneDelegate.swift in Sources */,

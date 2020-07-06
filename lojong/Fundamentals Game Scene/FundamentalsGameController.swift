@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class FundamentalsScene: SKView{
+class FundamentalsGameController: SKView{
     
     var viewController: UIViewController!
     var fundamentalsScene: SKScene!
@@ -23,7 +23,7 @@ class FundamentalsScene: SKView{
     var previousPoint = CGPoint.zero
     var cameraLimiter = CGPoint(x: 0, y: 0)
     var currentPosition: Int = 0
-    var buttons: [CustomButton] = []
+    var buttons: [ButtonSpriteNode] = []
     
     let panGesture = UIPanGestureRecognizer()
     
@@ -84,7 +84,7 @@ class FundamentalsScene: SKView{
             day.text = "Dia \(index+1)"
             day.fontName = "Asap-Medium"
             
-            let buttonNode =  CustomButton(position: day.position + CGPoint(x: 0, y: 25))
+            let buttonNode =  ButtonSpriteNode(position: day.position + CGPoint(x: 0, y: 25))
             buttonNode.delegate = self
             buttons.append(buttonNode)
             fundamentalsScene.addChild(buttonNode)
@@ -120,7 +120,7 @@ class FundamentalsScene: SKView{
         }
     }
 }
-extension FundamentalsScene: UIGestureRecognizerDelegate{
+extension FundamentalsGameController: UIGestureRecognizerDelegate{
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
     {
         camera.removeAllActions()
@@ -128,7 +128,7 @@ extension FundamentalsScene: UIGestureRecognizerDelegate{
         return true
     }
 }
-extension FundamentalsScene: ControlDaysDelegate{
+extension FundamentalsGameController: ControlDaysDelegate{
     func unlock(index: Int){
         if index < buttons.count{
             buttons[index].unlock()
