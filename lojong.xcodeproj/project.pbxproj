@@ -192,7 +192,6 @@
 				09ADEF017A8BAB67E253E5E8 /* Pods-lojong.debug.xcconfig */,
 				5ADA3EF9ABBB43133817B5C1 /* Pods-lojong.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
