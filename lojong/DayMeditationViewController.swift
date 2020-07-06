@@ -10,10 +10,13 @@ import UIKit
 
 class DayMeditationViewController: UIViewController {
 
+    var day = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavigationBar()
+        
+        print(day)
     }
     
     func setupNavigationBar(){

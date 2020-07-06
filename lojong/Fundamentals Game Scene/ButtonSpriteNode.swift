@@ -51,16 +51,15 @@ class ButtonSpriteNode: SKSpriteNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //print("state:\(state), orientation:\(orientation), type:\(type), day:\(day)")
         if state == "play" {
             state = "repeat"
-            delegate?.presentView(completion: {
+            delegate?.presentView(day: day,completion: {
                 self.delegate?.unlock(index: self.day)
                 self.delegate?.changeTile(row: self.row, column: self.column, sprite: self.repeatTile)
             })
         }
         else if state == "repeat" {
-            delegate?.presentView(completion: nil)
+            delegate?.presentView(day: day,completion: nil)
         }
     }
     

@@ -11,5 +11,5 @@ import SpriteKit
 protocol ControlDaysDelegate{
     func unlock(index: Int)
     func changeTile(row: Int, column: Int, sprite: SKTileGroup)
-    func presentView(completion: (()->())?)
+    func presentView(day: Int, completion: (()->())?)
 }
